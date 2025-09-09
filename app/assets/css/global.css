@@ -1,0 +1,10 @@
+/* 应用怪异盒模型到所有元素 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 可以在这里添加其他全局样式 */
