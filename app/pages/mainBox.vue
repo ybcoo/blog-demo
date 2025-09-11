@@ -2,82 +2,42 @@
   <main class="layout" :style="{ backgroundColor: themeStore.theme.color }">
     <!-- 1. 小屏幕时显示顶部水平导航 -->
     <div class="top-nav" :style="{ '--hover-bg': hovorColor }">
-      <NuxtLink
-        class="top-nav-item"
-        :style="{ backgroundColor: active === 'home' ? 'white' : '' }"
-        @click="changeActive('home')"
-        to="/mainBox/home"
-      >
+      <NuxtLink class="icon-container" :style="{ backgroundColor: active === 'home' ? 'white' : '' }"
+        @click="changeActive('home')" to="/mainBox/home">
         <img class="icon" :src="changeImg(homePic)" alt="home" />
       </NuxtLink>
-      <NuxtLink
-        class="top-nav-item"
-        :style="{ backgroundColor: active === 'about' ? 'white' : '' }"
-        @click="changeActive('about')"
-        to="/mainBox/about"
-      >
+      <NuxtLink class="icon-container" :style="{ backgroundColor: active === 'about' ? 'white' : '' }"
+        @click="changeActive('about')" to="/mainBox/about">
         <img class="icon" :src="changeImg(aboutPic)" alt="about" />
       </NuxtLink>
-      <NuxtLink
-        class="top-nav-item"
-        :style="{ backgroundColor: active === 'share' ? 'white' : '' }"
-        @click="changeActive('share')"
-        to="/mainBox/share"
-      >
+      <NuxtLink class="icon-container" :style="{ backgroundColor: active === 'share' ? 'white' : '' }"
+        @click="changeActive('share')" to="/mainBox/share">
         <img class="icon" :src="changeImg(sharePic)" alt="share" />
       </NuxtLink>
-      <button
-        class="top-nav-item theme-btn"
-        :disabled="isDisabled"
-        @click="toggleThemeWithAnimation"
-      >
+      <button class="icon-container" :disabled="isDisabled" @click="toggleThemeWithAnimation">
         <img class="icon" :src="themeImg" alt="theme" />
-        <span
-          v-if="showRipple"
-          class="ripple-effect"
-          :style="rippleStyle"
-        ></span>
+        <span v-if="showRipple" class="ripple-effect" :style="rippleStyle"></span>
       </button>
     </div>
     <aside class="sidebar">
       <nav class="navContainer">
         <div class="nav" :style="{ '--hover-bg': hovorColor }">
-          <NuxtLink
-            class="icon-container"
-            :style="{ backgroundColor: active === 'home' ? 'white' : '' }"
-            @click="changeActive('home')"
-            to="/mainBox/home"
-          >
+          <NuxtLink class="icon-container" :style="{ backgroundColor: active === 'home' ? 'white' : '' }"
+            @click="changeActive('home')" to="/mainBox/home">
             <img class="icon" :src="changeImg(homePic)" alt="home" />
           </NuxtLink>
-          <NuxtLink
-            class="icon-container"
-            :style="{ backgroundColor: active === 'about' ? 'white' : '' }"
-            @click="changeActive('about')"
-            to="/mainBox/about"
-          >
+          <NuxtLink class="icon-container" :style="{ backgroundColor: active === 'about' ? 'white' : '' }"
+            @click="changeActive('about')" to="/mainBox/about">
             <img class="icon" :src="changeImg(aboutPic)" alt="about" />
           </NuxtLink>
-          <NuxtLink
-            class="icon-container"
-            :style="{ backgroundColor: active === 'share' ? 'white' : '' }"
-            @click="changeActive('share')"
-            to="/mainBox/share"
-          >
+          <NuxtLink class="icon-container" :style="{ backgroundColor: active === 'share' ? 'white' : '' }"
+            @click="changeActive('share')" to="/mainBox/share">
             <img class="icon" :src="changeImg(sharePic)" alt="share" />
           </NuxtLink>
         </div>
-        <button
-          class="icon-container"
-          :disabled="isDisabled"
-          @click="toggleThemeWithAnimation"
-        >
+        <button class="icon-container" :disabled="isDisabled" @click="toggleThemeWithAnimation">
           <img class="icon" :src="themeImg" alt="theme" />
-          <span
-            v-if="showRipple"
-            class="ripple-effect"
-            :style="rippleStyle"
-          ></span>
+          <span v-if="showRipple" class="ripple-effect" :style="rippleStyle"></span>
         </button>
       </nav>
     </aside>
@@ -195,35 +155,13 @@ const changeImg = (img) => {
   align-items: center;
   justify-content: center;
   gap: 16px; // 导航项间距
-  // 主题切换按钮在顶部导航中的样式
-  .theme-btn {
-    border: none;
-    outline: none;
-    padding: 0;
-    background: transparent;
-    position: relative;
-  }
+
   // 小屏幕显示顶部导航
   @media (max-width: 768px) {
     display: flex;
   }
 }
 
-// 顶部导航项样式
-.top-nav-item {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  cursor: pointer;
-  // transition: background-color 0.2s;
-
-  &:hover {
-    background-color: var(--hover-bg);
-  }
-}
 .layout {
   width: 100vw;
   height: 100vh;
@@ -233,49 +171,65 @@ const changeImg = (img) => {
   overflow: hidden;
   flex-wrap: wrap;
   padding-top: 200px;
+
   @media (max-width: 768px) {
     flex-direction: column;
     justify-content: flex-start;
+    padding-top: 0;
   }
-  // transition: background-color 0.3s ease 0.3s;
-  .sidebar {
-    width: 20%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
-  .content {
-    width: 80%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding-right: 20%;
-    @media (max-width: 768px) {
-      width: 100%;
-      height: calc(100vh - 60px); // 减去顶部导航高度
-      margin-top: 60px;
-    }
+
+  //  transition: background-color 0.6s ease; 
+
+}
+
+.sidebar {
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease; // 侧边栏动画
+
+  @media (max-width: 768px) {
+    display: none;
   }
 }
+
+.content {
+  width: 80%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-right: 20%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: calc(100vh - 60px); // 减去顶部导航高度
+    margin-top: 60px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
 .nav {
   width: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   &:hover {
     background-color: var(--hover-bg);
   }
+
   border-radius: 8px;
 }
+
 .icon {
   width: 20px;
   height: 20px;
   vertical-align: middle;
 }
+
 .icon-container {
   width: 50px;
   height: 50px;
@@ -289,10 +243,29 @@ const changeImg = (img) => {
   cursor: pointer;
   border-radius: 8px;
   position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); // 统一过渡效果
+
   &:hover {
+    background-color: var(--hover-bg);
     cursor: pointer;
+    transform: translateX(2px); // 侧边导航项悬停时轻微右移
+  }
+
+  &.active {
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05); // 激活状态放大
+  }
+
+  &:hover .icon {
+    transform: scale(1.15); // 悬停时图标放大
+  }
+
+  &.active .icon {
+    transform: scale(1.2); // 激活状态图标更大
   }
 }
+
 .ripple-effect {
   position: absolute;
   border-radius: 50%;
@@ -301,6 +274,7 @@ const changeImg = (img) => {
   animation: ripple 0.6s linear;
   pointer-events: none;
 }
+
 @keyframes ripple {
   to {
     transform: scale(var(--scale));
