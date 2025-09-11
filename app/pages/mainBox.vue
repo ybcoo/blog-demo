@@ -232,6 +232,7 @@ const changeImg = (img) => {
   align-items: center;
   overflow: hidden;
   flex-wrap: wrap;
+  padding-top: 200px;
   @media (max-width: 768px) {
     flex-direction: column;
     justify-content: flex-start;
@@ -242,7 +243,6 @@ const changeImg = (img) => {
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
     @media (max-width: 768px) {
       display: none;
     }
@@ -250,6 +250,9 @@ const changeImg = (img) => {
   .content {
     width: 80%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-right: 20%;
     @media (max-width: 768px) {
       width: 100%;
       height: calc(100vh - 60px); // 减去顶部导航高度
