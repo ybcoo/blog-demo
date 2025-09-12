@@ -1,4 +1,4 @@
-/* 应用怪异盒模型到所有元素 */
+/* 1. 应用怪异盒模型到所有元素（核心：padding/border不影响元素尺寸） */
 *,
 *::before,
 *::after {
@@ -7,4 +7,33 @@
   padding: 0;
 }
 
-/* 可以在这里添加其他全局样式 */
+/* 2. 根元素高度/宽度配置（打通百分比高度链条） */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+#__nuxt {
+  height: 100%; /* 继承 body 的 100% 高度 */
+  width: 100%;
+}
+.bigTitle_sun{
+  color: #45403c;
+}
+.bigTitle_moon{
+  color: #d9e0d8;
+}
+.smallTitle_sun{
+  color: #716d68;
+}
+.smallTitle_moon{
+  color: #bbc1b5;
+}
+.font_sun{
+  color: #aba49f;
+}
+.font_moon{
+  color: #8a9588;
+}

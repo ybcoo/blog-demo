@@ -163,15 +163,14 @@ const changeImg = (img) => {
 }
 
 .layout {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  overflow: hidden;
   flex-wrap: wrap;
-  padding-top: 200px;
-
+  overflow: hidden;
   @media (max-width: 768px) {
     flex-direction: column;
     justify-content: flex-start;
@@ -184,11 +183,11 @@ const changeImg = (img) => {
 
 .sidebar {
   width: 20%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   transition: transform 0.3s ease, opacity 0.3s ease; // 侧边栏动画
-
+  padding-top: 200px;
   @media (max-width: 768px) {
     display: none;
   }
@@ -196,14 +195,17 @@ const changeImg = (img) => {
 
 .content {
   width: 80%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   padding-right: 20%;
+  align-items: stretch; 
+  overflow-y: hidden; 
+  
 
   @media (max-width: 768px) {
     width: 100%;
-    height: calc(100vh - 60px); // 减去顶部导航高度
+    height: calc(100% - 60px); // 减去顶部导航高度
     margin-top: 60px;
     padding-right: 20px;
     padding-left: 20px;
